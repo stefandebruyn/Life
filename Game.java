@@ -60,13 +60,13 @@ public class Game implements CellPatterns {
         cells.remove(i);
   }
 
-  /* Cells add themselves to the game with this method upon construction */
+  /* Any and all cells must be added to the game through this method */
   public void addCell(Cell c) {
     if (getCellAt(c.getX(),c.getY()) == null)
       cells.add(c);
   }
 
-  /* Any and all cells must be added to the game through this method */
+  /* Add a cell to be killed at the end of the current cycle */
   public void addCellToKill(Cell c)
   { cellsToKill.add(c); }
 
