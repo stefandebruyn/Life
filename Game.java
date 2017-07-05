@@ -66,11 +66,11 @@ public class Game implements CellPatterns {
       cells.add(c);
   }
 
-  /* Add a cell to be killed at the end of the next cycle */
+  /* Any and all cells must be added to the game through this method */
   public void addCellToKill(Cell c)
   { cellsToKill.add(c); }
 
-  /* Add a cell to be created at the end of the next cycle */
+  /* Add a cell to be created at the end of the current cycle */
   public void addCellToCreate(Cell c)
   { cellsToCreate.add(c); }
 
