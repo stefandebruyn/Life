@@ -17,7 +17,7 @@ public abstract class Cell {
   public int getY()
   { return y; }
 
-  /* Returns the number of living cells in the 8 spots adjacent to a specified position */
+  /* Returns the number of living cells in the 8 spots adjacent to a specific position */
   public int countLivingNeighborsOfPosition(int x, int y) {
     int sum = 0;
     for (int xOff = -1; xOff <= 1; xOff += 1)

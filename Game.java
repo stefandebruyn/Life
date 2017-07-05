@@ -26,13 +26,12 @@ public class Game implements CellPatterns {
     addCellPattern(75,15,ACORN);
     // For each game cycle
     while (cycles > 0) {
-      // Run each cell's behavior
-      for (int i = cells.size()-1; i >= 0; i--)
+      // Run each cell's behavior and draw it to the surface
+      for (int i = cells.size()-1; i >= 0; i--) {
         cells.get(i).run();
-      // Draw each cell to the surface -- separate from the previous loop because cells may have died since this cycle began
-      for (Cell c : cells)
-        GAME_SURFACE.draw(c.getX(),c.getY(),c.getSprite());
-      // Kill cells that need to be killed and create cells that need to be created -- performed by the game rather than the cells themselves to maintain concurrency
+        GAME_SURFACE.draw(cells.get(i).getX(),cells.get(i).getY(),cells.get(i).getSprite());
+      }
+      // Kill cells that need to be killed and create cells that need to be created -- performed by the game rather than the cells to maintain concurrency
       for (Cell c : cellsToKill)
         killCell(c);
       for (Cell c : cellsToCreate)
@@ -82,7 +81,7 @@ public class Game implements CellPatterns {
    *      addCellPattern(0,0,["101",
    *                          "010",
    *                          "101"]);
-   * Several well-known patterns are pre-written as constants for quick access in CellPatterns.java
+   * Several well-known patterns are pre-written for quick access in CellPatterns.java
    */
   public void addCellPattern(int x, int y, String[] bin) {
     for (int yOff = 0; yOff < bin.length; yOff++)
