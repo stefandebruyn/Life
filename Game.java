@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Game implements CellPatterns {
   private static Game instance = null;
   private final Surface GAME_SURFACE;
-  private final int SIMULATION_FPS = 30;
+  private final int SIMULATION_FPS = 60;
   private ArrayList<Cell> cells;
   private ArrayList<Cell> cellsToKill;
   private ArrayList<Cell> cellsToCreate;
@@ -20,10 +20,8 @@ public class Game implements CellPatterns {
 
   /* Run x amount of cycles in the game, and then terminate */
   public void run(int cycles) {
-    // Starting state
-    addCellPattern(10,10,PENTADECATHLON);
-    addCellPattern(50,5,GLIDER);
-    addCellPattern(75,15,ACORN);
+    // Initial state
+    addCellPattern(60,15,ACORN);
     // For each game cycle
     while (cycles > 0) {
       // Run each cell's behavior and draw it to the surface
