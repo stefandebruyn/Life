@@ -8,6 +8,12 @@ public class Surface {
   private static Surface instance = null;
   private String[][] surface;
 
+  /*
+   * Surface uses Windows command prompt like a graphical interface by printing out 2D strings
+   * the exact dimension of the window. Because cmd uses a fixed-width font, characters are
+   * aligned like pixels on a screen and can be used as such.
+   */
+
   private Surface() {
     surface = new String[CMD_HEIGHT][CMD_WIDTH];
     for (String[] arr : surface)
